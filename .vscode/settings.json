@@ -1,18 +1,32 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-	"editor.tabSize": 2,
-	"editor.insertSpaces": true,
-	"editor.wordWrap": "on",
-	"files.autoSave": "onFocusChange",
-	"files.eol": "\n",
-	"jshint.enable": false,
-	"eslint.autoFixOnSave": true,
-	"editor.formatOnSave": false,
-	"javascript.format.enable": true,
-	"javascript.format.": false,
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"html"
-	]
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.wordWrap": "on",
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "jshint.enable": false,
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "javascript.format.enable": true,
+  "javascript.validate.enable": false,
+  "eslint.validate": [
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    }
+  ],
+  "eslint.workingDirectories": [
+    "./src",
+    "./test"
+  ]
 }
