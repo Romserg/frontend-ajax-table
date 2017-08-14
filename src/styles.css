@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ol > li > p {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+table th {
+  vertical-align: middle;
+  text-align: left;
+}
