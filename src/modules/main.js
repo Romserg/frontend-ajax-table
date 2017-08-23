@@ -1,56 +1,37 @@
 import $ from 'jquery'; // eslint-disable-line
+import renderRows from './renderRows';
+import compareName from './compareName';
+import compareNumeric from './compareNumeric';
+
 export default {};
 
-function compareName(a, b) { // eslint-disable-line
-	if (a.name.first > b.name.first) return 1;
-	if (a.name.first < b.name.first) return -1;
-}
-
-function compareNumeric(a, b) { // eslint-disable-line
-	if (a.age > b.age) return 1;
-	if (a.age < b.age) return -1;
-}
-
-function renderTable(elem) {
-	return (`<tr><td><img src='${elem.picture}'></td>
-	<td>${elem.name.first} ${elem.name.last}</td>
-	<td>${elem.isActive}</td>
-	<td>${elem.about}</td>
-	<td>${elem.balance}</td>
-	<td>${elem.age}</td>
-	<td>${elem.registered}</td>
-	<td>${elem.company}</td>
-	<td><a href='mailto:${elem.email}'>${elem.email}</a></td>
-	<td><a href='tel:${elem.phone}'>${elem.phone}</a></td>
-	<td>${elem.address}</td></tr>`);
-}
 
 $(document).ready(() => {
 	$.ajax('http://www.mocky.io/v2/55f748b33568195d044b3dc8').done((response) => {
 		response.map(elem => $('.all-users')
-			.append(renderTable(elem))
+			.append(renderRows(elem))
 		);
 		response.filter((elem) => {
 			if (elem.isActive === true) {
 				$('.active-users')
-					.append(renderTable(elem));
+					.append(renderRows(elem));
 			}
 			return {};
 		});
 		response.filter((elem) => {
 			if (elem.name.last.length >= 6) {
 				$('.lastname-more-six')
-					.append(renderTable(elem));
+					.append(renderRows(elem));
 			}
 			return {};
 		});
 		response.sort(compareNumeric).forEach(elem =>
 			$('.age-sorted')
-				.append(renderTable(elem))
+				.append(renderRows(elem))
 		);
 		response.sort(compareName).forEach(elem =>
 			$('.fullname-sorted')
-				.append(renderTable(elem))
+				.append(renderRows(elem))
 		);
 	});
 });
