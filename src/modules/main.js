@@ -5,31 +5,31 @@ import compareNumeric from './compareNumeric';
 
 export default {};
 
-
 $(document).ready(() => {
 	$.ajax('http://www.mocky.io/v2/55f748b33568195d044b3dc8').done((response) => {
-		response.map(elem => $('.all-users')
+		const fullCopy = response.slice();
+		fullCopy.map(elem => $('.all-users')
 			.append(renderRows(elem))
 		);
-		response.forEach((elem) => {
+		fullCopy.forEach((elem) => {
 			if (elem.isActive === true) {
 				$('.active-users')
 					.append(renderRows(elem));
 			}
 			return {};
 		});
-		response.forEach((elem) => {
+		fullCopy.forEach((elem) => {
 			if (elem.name.last.length >= 6) {
 				$('.lastname-more-six')
 					.append(renderRows(elem));
 			}
 			return {};
 		});
-		response.sort(compareNumeric).forEach(elem =>
+		fullCopy.sort(compareNumeric).forEach(elem =>
 			$('.age-sorted')
 				.append(renderRows(elem))
 		);
-		response.sort(compareName).forEach(elem =>
+		fullCopy.sort(compareName).forEach(elem =>
 			$('.fullname-sorted')
 				.append(renderRows(elem))
 		);
