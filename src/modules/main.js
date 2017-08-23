@@ -11,14 +11,14 @@ $(document).ready(() => {
 		response.map(elem => $('.all-users')
 			.append(renderRows(elem))
 		);
-		response.filter((elem) => {
+		response.forEach((elem) => {
 			if (elem.isActive === true) {
 				$('.active-users')
 					.append(renderRows(elem));
 			}
 			return {};
 		});
-		response.filter((elem) => {
+		response.forEach((elem) => {
 			if (elem.name.last.length >= 6) {
 				$('.lastname-more-six')
 					.append(renderRows(elem));
