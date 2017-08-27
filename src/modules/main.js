@@ -1,7 +1,7 @@
 import $ from 'jquery'; // eslint-disable-line
 import renderRow from './renderRow';
 import compareName from './compareName';
-import compareNumeric from './compareNumeric';
+import copmareAge from './copmareAge';
 import ajaxRequest from './ajaxRequest';
 
 export default {};
@@ -29,7 +29,7 @@ $(document).ready(() => {
 				}
 				return {};
 			});
-			fullCopy.sort(compareNumeric).forEach(elem =>
+			fullCopy.sort(copmareAge).forEach(elem =>
 				$('.age-sorted')
 					.append(renderRow(elem))
 			);
