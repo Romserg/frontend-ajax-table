@@ -1,5 +1,5 @@
 import $ from 'jquery'; // eslint-disable-line
-import renderRows from './renderRows';
+import renderRow from './renderRow';
 import compareName from './compareName';
 import compareNumeric from './compareNumeric';
 import ajaxRequest from './ajaxRequest';
@@ -13,29 +13,29 @@ $(document).ready(() => {
 		(response) => {
 			const fullCopy = (response);
 			fullCopy.map(elem => $('.all-users')
-				.append(renderRows(elem))
+				.append(renderRow(elem))
 			);
 			fullCopy.forEach((elem) => {
 				if (elem.isActive === true) {
 					$('.active-users')
-						.append(renderRows(elem));
+						.append(renderRow(elem));
 				}
 				return {};
 			});
 			fullCopy.forEach((elem) => {
 				if (elem.name.last.length >= 6) {
 					$('.lastname-more-six')
-						.append(renderRows(elem));
+						.append(renderRow(elem));
 				}
 				return {};
 			});
 			fullCopy.sort(compareNumeric).forEach(elem =>
 				$('.age-sorted')
-					.append(renderRows(elem))
+					.append(renderRow(elem))
 			);
 			fullCopy.sort(compareName).forEach(elem =>
 				$('.fullname-sorted')
-					.append(renderRows(elem))
+					.append(renderRow(elem))
 			);
 		}
 		);
