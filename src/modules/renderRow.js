@@ -1,4 +1,4 @@
-export default function renderRows(elem) {
+export default function renderRow(elem) {
 	return (`<tr><td><img src='${elem.picture}'></td>
 	<td>${elem.name.first} ${elem.name.last}</td>
 	<td>${elem.isActive}</td>
